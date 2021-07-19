@@ -1,12 +1,14 @@
 import React from 'react';
 import styles from './Home.module.sass';
+import Me from "../../components/Me";
+import IconsWithMetrics from '../../components/IconsMetrics';
 
 const Home = () => {
     return (
-        <h3
-            className={styles.root_grid}>
-            Hello, this is Home page!
-        </h3>
+        <div className={styles.home}>
+            <Me />
+            <IconsWithMetrics />
+        </div>
     );
 }
 
