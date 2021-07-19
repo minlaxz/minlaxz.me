@@ -2,6 +2,7 @@
 import React from 'react';
 import { Route } from "react-router-dom"
 import { BrowserRouter as Router } from "react-router-dom";
+import 'materialize-css/dist/css/materialize.css';
 
 // context providers
 import { GistContextProvider } from './contexts/GistContext';
@@ -16,10 +17,11 @@ const Root = () => {
         <Router>
             <Main />
 
-            <Route exact path="/" component={Home} />
             <GistContextProvider>
+                <Route exact path="/" component={Home} />
                 <Route exact path="/gists" component={Gists} />
             </GistContextProvider>
+
             <Route exact path="/iots" component={Iots} />
         </Router>
     );
