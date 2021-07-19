@@ -1,23 +1,7 @@
-import React, { useEffect, useState } from "react";
-import M from "materialize-css";
-import { storage } from "../../services/Firebase";
+import React from "react";
 import LargeLoading from "../Loading/Loading";
 
-const HandleAfterDocumentLoaded = () => {
-    const elems = document.querySelectorAll(".materialboxed");
-    M.Materialbox.init(elems, { inDuration: 500, outDuration: 500 });
-};
-
-const MyPicture = () => {
-    const [imageUrl, setImageUrl] = useState(null);
-    const storageRef = storage.ref()
-    useEffect(() => {
-        storageRef.child('minlaxz-dev/images/itssssme.jpg').getDownloadURL()
-            .then((url) => {
-                setImageUrl(url);
-            })
-        HandleAfterDocumentLoaded();
-    }, [storageRef]);
+const MyPicture = ({imageUrl}) => {
     return (
         <div>
             {imageUrl ?
