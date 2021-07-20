@@ -8,14 +8,14 @@ import 'materialize-css/dist/css/materialize.css';
 import { GistContextProvider } from './contexts/GistContext';
 
 // components and pages
-import Main from './components/Main/Main';
+// import Main from './components/Main/Main';
 import Home from './pages/Home/Home';
 import Gists from './pages/Gists/Gists';
 import Iots from './pages/Iots/Iots';
 const Root = () => {
     return (
         <Router>
-            <Main />
+            {/* <Main /> */}
 
             <GistContextProvider>
                 <Route exact path="/" component={Home} />
