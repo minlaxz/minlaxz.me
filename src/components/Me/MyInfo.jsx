@@ -2,7 +2,7 @@ import React from "react";
 
 const MyInfo = ({gists}) => {
     return (
-        <div className="col s12 m12 l8 xl9">
+        <div className="col-start-2 col-end-12">
             <p className="card-head" > "About : " </p>
             <div className="card-body" >
                 <b
