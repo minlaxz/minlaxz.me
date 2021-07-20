@@ -1,7 +1,9 @@
 import React from 'react';
 // import styles from './Home.module.sass';
-// import Me from "../../components/Me";
-import Sample from '../../components/Sample/Sample';
+import Me from "../../components/Me";
+// import Sample from '../../components/Sample/Sample';
+import Toggle from '../../components/ThemeToggler/ThemeToggler';
+import { ThemeProvider } from '../../contexts/ThemeContext';
 // import IconsWithMetrics from '../../components/IconsMetrics';
 
 const Home = () => {
@@ -10,7 +12,14 @@ const Home = () => {
         //     <Me />
         //     <IconsWithMetrics />
         // </div>
-        <Sample />
+        <ThemeProvider>
+            <div className="absolute right-0 top-0 mr-4 mt-4 md:mr-6 md:mt-6">
+                <Toggle />
+            </div>
+            {/* <Sample /> */}
+            <Me />
+
+        </ThemeProvider>
     );
 }
 
