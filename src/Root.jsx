@@ -16,10 +16,9 @@ const Root = () => {
     return (
         <Router>
             {/* <Main /> */}
-
             <GistContextProvider>
-            <Route exact path="/" component={Home} />
-            {/* <Route exact path="/gists" component={Gists} /> */}
+                <Route exact path="/" component={Home} />
+                {/* <Route exact path="/gists" component={Gists} /> */}
             </GistContextProvider>
 
             {/* <Route exact path="/iots" component={Iots} /> */}

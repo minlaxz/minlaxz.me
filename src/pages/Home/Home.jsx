@@ -1,8 +1,9 @@
 import React from 'react';
 // import styles from './Home.module.sass';
-// import Me from "../../components/Me";
+import Me from "../../components/Me";
+import Nav from '../../components/Sample/Nav';
 // import IconsWithMetrics from '../../components/IconsMetrics';
-import Sample from '../../components/Sample/Sample';
+// import Sample from '../../components/Sample/Sample';
 import Toggle from '../../components/ThemeToggler/ThemeToggler';
 import { ThemeProvider } from '../../contexts/ThemeContext';
 
@@ -14,11 +15,17 @@ const Home = () => {
         //     <IconsWithMetrics />
         // </div>
         <ThemeProvider>
-            <div className="absolute right-0 top-0 mr-4 mt-4 md:mr-6 md:mt-6">
+            <div className="absolute left-0 top-0 mt-3 ml-3 md:mt-4 md:ml-4 lg:mt-4 lg:ml-4 xl:mt-4 xl:ml-6 2xl:mt-3 2xl:ml-6">
                 <Toggle />
             </div>
-            <Sample />
-            {/* <Me /> */}
+
+            <div className="bg-white dark:bg-gray-800 transition-all">
+                <Nav />
+                <Me />
+            </div>
+
+            {/* <Sample /> */}
+
 
         </ThemeProvider>
     );
