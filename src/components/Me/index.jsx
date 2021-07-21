@@ -25,7 +25,7 @@ const Me = () => {
     }, [storageRef]);
 
     return (
-        <div className="container row" style={{ marginTop: "3%" }}>
+        <div className="grid grid-cols-12 gap-4" style={{ marginTop: "4%" }}>
             <MyPicture imageUrl={imageUrl} />
             <MyInfo gists={gists} />
         </div>

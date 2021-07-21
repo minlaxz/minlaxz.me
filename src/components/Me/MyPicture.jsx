@@ -3,20 +3,20 @@ import LargeLoading from "../Loading/Loading";
 
 const MyPicture = ({imageUrl}) => {
     return (
-        <div>
+        <div className="col-start-2 col-end-9">
             {imageUrl ?
                 <div>
-                    <p className="blue-text" style={{ fontSize: "12px", margin: "2%" }}>This image is fetched from firebase bucket.</p>
+                    <p className="text-blue-500 dark:text-indigo-500" style={{ fontSize: "12px", margin: "2%" }}>This image is fetched from firebase bucket.</p>
                     <img
-                        className="col s7 m6 l4 xl3 materialboxed responsive-img"
+                        className=""
                         src={imageUrl}
                         alt="This is me at Bagan."
                         draggable={false}
                     />
                 </div>
                 :
-                <div className="center">
-                    <p className="white-text">Fetching from firebase bucket...</p>
+                <div className="self-center">
+                    <p className="text-red-500 dark:text-white">Fetching from firebase bucket...</p>
                     <LargeLoading />
                 </div>
 
