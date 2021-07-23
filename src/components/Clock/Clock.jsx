@@ -1,7 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 
 const Clock = () => {
     const [date, setDate] = useState(new Date())
+
+    const tick = useCallback(()=> {
+        setDate(new Date());
+    },[])
+
     useEffect(() => {
         // on component mount.
         let timerID = setInterval(() => tick(), 1000);
@@ -9,11 +14,7 @@ const Clock = () => {
             // on component unmount.
             clearInterval(timerID);
         };
-    });
-
-    const tick = () => {
-        setDate(new Date());
-    };
+    }, [tick]);
 
     return (
         <span>

@@ -1,4 +1,5 @@
 import React from 'react';
+import Clock from '../../components/Clock/Clock';
 // import styles from './Home.module.sass';
 import Me from "../../components/Me";
 import Nav from '../../components/Sample/Nav';
@@ -21,6 +22,7 @@ const Home = () => {
 
             <div className="bg-white dark:bg-gray-800 transition-all">
                 <Nav />
+                <Clock />
                 <Me />
             </div>
 
