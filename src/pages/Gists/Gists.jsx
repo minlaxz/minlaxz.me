@@ -9,7 +9,7 @@ const Gists = () => {
         window.document.title = `🌠 from Minlaxz | ${gists.length} Gists`
     })
     return (
-        <div className="container-fluid justify-content-start" style={{ color: "lightblue" }}>
+        <div className={`container-fluid justify-content-start ${styles.gist_color} ${styles.root_grid}`}>  {/*  style={{ color: "lightblue" }} */}
             {gists.length === 0 ? <p>Fetching gists, please wait...</p> : <p>Total : {gists.length}</p>}
             <ol>
                 {
