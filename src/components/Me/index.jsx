@@ -32,7 +32,7 @@ const Temp = () => {
                     rel="noopener noreferrer"
                     className="underline text-blue-600 dark:text-blue-800"> minlaxz </a>
                 by github actions</p>
-            <pre className="text-xs text-center text-red-400 dark:text-red-800">This is breaking on desktop view &gt; 712px 🤣 or 640 🤪 .</pre>
+            <pre className="text-xs text-center text-red-400 dark:text-red-800">This will break on view &gt; 712px or 640 🤪</pre>
         </div>
     )
 }
