@@ -2,7 +2,7 @@ import React from "react";
 
 const MyInfo = ({ gists }) => {
     return (
-        <div className="col-start-1 col-end-13 md:col-start-2 md:col-end-13 lg:col-start-6 lg:col-end-12 xl:col-start-2 xl:col-end-13 2xl:col-start-5 2xl:col-end-13">
+        <div className="flex-1 m-3">
             <p className="font-sans font-bold text-xl xl:text-2xl text-black dark:text-indigo-600" > "About : " </p>
             <div className="text-base md:text-lg lg:text-xl xl:text-lg">
                 <ul key="ul_bg">
