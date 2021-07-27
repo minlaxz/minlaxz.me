@@ -8,20 +8,20 @@ import { ThemeProvider } from '../../contexts/ThemeContext';
 
 const Home = () => {
     return (
-        // <div className={styles.home}>
-        //     <Me />
-        //     <IconsWithMetrics />
-        // </div>
+
         <ThemeProvider>
-            <div className="static w-full bg-white dark:bg-gray-800 transition-all mx-auto">
-                <Navbar />
-                <Me debugging={true}/>
-                {/* <IconsWithMetrics /> */}
+            <div className="flex flex-col
+                bg-white dark:bg-gray-800 
+                transition-all duration-300">
+                <div className="flex-grow-0">
+                    <Navbar />
+                </div>
+                <div className="flex-1">
+                    <Me debugging={true} />
+                </div>
+
 
             </div>
-
-            {/* <Sample /> */}
-
 
         </ThemeProvider>
     );

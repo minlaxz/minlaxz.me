@@ -32,10 +32,11 @@ const Temp = () => {
                     rel="noopener noreferrer"
                     className="underline text-blue-600 dark:text-blue-800"> minlaxz </a>
                 by github actions</p>
-            {/* <pre className="text-xs text-center text-red-400 dark:text-red-800">Navigation dropdown is a bug.</pre> */}
+            <pre className="text-xs text-center text-red-400 dark:text-red-800">This is breaking on desktop view &gt; 712px 🤣 or 640 🤪 .</pre>
         </div>
     )
 }
+
 const Me = ({ debugging }) => {
     let gists = { length: 22 };
 
@@ -57,7 +58,7 @@ const Me = ({ debugging }) => {
     return (
         <div>
             <Temp />
-            <div className="grid p-4 h-screen justify-center items-center grid-cols-12 gap-1 md:grid-cols-12 md:gap-6 lg:grid-cols-12 lg:gap-6 xl:grid-cols-12 xl:gap-6 2xl:grid-cols-12 2xl:gap-6">
+            <div className="flex flex-col h-screen lg:flex-row">
                 <MyPicture imageUrl={imageUrl} debugging={debugging} />
                 <MyInfo gists={gists} />
             </div>
@@ -65,7 +66,5 @@ const Me = ({ debugging }) => {
 
     );
 };
-
-
 
 export default Me;
