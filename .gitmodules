@@ -1,3 +1,6 @@
 [submodule "minlaxz.github.io"]
 	path = minlaxz.github.io
 	url = git@github.com:minlaxz/minlaxz.github.io.git
+[submodule "super-drf"]
+	path = super-drf
+	url = git@github.com:minlaxz/super-drf.git
