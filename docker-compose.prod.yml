@@ -2,16 +2,13 @@ version: '3.8'
 
 services:
   web:
-    build: 
+    build:
       context: ./super-drf
       dockerfile: Dockerfile.prod
     command: gunicorn superduperdrf.wsgi:application --bind 0.0.0.0:8000
-    # volumes:
-    #   - ./super-drf:/usr/src/app/
     volumes:
       - static_volume:/home/app/web/staticfiles
-    # ports:
-    #   - 8000:8000
+      - media_volume:/home/app/web/mediafiles
     expose:
       - 8000
     env_file:
@@ -24,17 +21,40 @@ services:
       - postgres_data:/var/lib/postgresql/data/
     env_file:
       - ./.env.prod.db
+  nginx-proxy:
+    container_name: nginx-proxy
+    build: nginx
+    restart: always
     ports:
-      - 5432:5432
-  nginx:
-    build: ./nginx
-    ports:
-      - 1337:80
-    depends_on:
-      - web
+      - 443:443
+      - 80:80
     volumes:
       - static_volume:/home/app/web/staticfiles
+      - media_volume:/home/app/web/mediafiles
+      - certs:/etc/nginx/certs
+      - html:/usr/share/nginx/html
+      - vhost:/etc/nginx/vhost.d
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+    depends_on:
+      - web
+  nginx-proxy-letsencrypt:
+    image: jrcs/letsencrypt-nginx-proxy-companion
+    env_file:
+      - ./.env.prod.proxy-companion
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - certs:/etc/nginx/certs
+      - html:/usr/share/nginx/html
+      - vhost:/etc/nginx/vhost.d
+      - acme:/etc/acme.sh
+    depends_on:
+      - nginx-proxy
 
 volumes:
   postgres_data:
   static_volume:
+  media_volume:
+  certs:
+  html:
+  vhost:
+  acme:
