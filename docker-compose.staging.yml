@@ -38,7 +38,7 @@ services:
     depends_on:
       - web
   nginx-proxy-letsencrypt:
-    image: jrcs/letsencrypt-nginx-proxy-companion
+    image: nginxproxy/acme-companion:latest
     env_file:
       - ./.env.staging.proxy-companion
     volumes:
