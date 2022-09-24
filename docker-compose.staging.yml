@@ -1,10 +1,16 @@
-version: '3.8'
+version: "3.8"
+
+networks:
+  default:
+    name: nginx-proxy-network
+    external: true
+
 
 services:
   web:
     build:
       context: ./super-drf
-      dockerfile: Dockerfile.prod
+      dockerfile: Dockerfile.with-compose.prod
     command: gunicorn superduperdrf.wsgi:application --bind 0.0.0.0:8000
     volumes:
       - static_volume:/home/app/web/staticfiles
@@ -18,43 +24,31 @@ services:
   db:
     image: postgres:13.0-alpine
     volumes:
-      - postgres_data:/var/lib/postgresql/data/
+      - ./postgres_data:/var/lib/postgresql/data/
     env_file:
       - ./.env.staging.db
-  nginx-proxy:
-    container_name: nginx-proxy
-    build: nginx
-    restart: always
-    ports:
-      - 443:443
-      - 80:80
+      - ./.env.proxy
+    expose:
+      - 5432
+
+  
+  nginx:
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+      # args:
+        # IDENTIFIER: "${IDENTIFIER}"
     volumes:
       - static_volume:/home/app/web/staticfiles
-      - media_volume:/home/app/web/mediafiles
-      - certs:/etc/nginx/certs
-      - html:/usr/share/nginx/html
-      - vhost:/etc/nginx/vhost.d
-      - /var/run/docker.sock:/tmp/docker.sock:ro
+      - ./mediafiles:/home/app/web/mediafiles
+      - ./logs:/home/app/web/logs
+    env_file:
+      - ./.env.proxy
+    expose:
+      - 80
+      # - 8080 # if nginx stub
     depends_on:
       - web
-  nginx-proxy-letsencrypt:
-    image: nginxproxy/acme-companion:latest
-    env_file:
-      - ./.env.staging.proxy-companion
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock:ro
-      - certs:/etc/nginx/certs
-      - html:/usr/share/nginx/html
-      - vhost:/etc/nginx/vhost.d
-      - acme:/etc/acme.sh
-    depends_on:
-      - nginx-proxy
 
 volumes:
-  postgres_data:
   static_volume:
-  media_volume:
-  certs:
-  html:
-  vhost:
-  acme:

@@ -2,32 +2,36 @@
 Redirect to minlaxz.vercel.app .
 ```
 
--- three parts:
---
-1. [minlaxz.github.io](minlaxz.github.io) - Frontend using NextJS
-2. [super-drf](super-drf) - Backend using Django REST Framework
+### three parts:
+
+1. [minlaxz.github.io](minlaxz.github.io) - Frontend using NextJS - submodule
+2. [super-drf](super-drf) - Backend using Django REST Framework - submodule
 3. [This/*](.) - Containerizing the deploying to AWS
 
-
-### Frontend --
+---
+### For FE --
 - next
 - reduxjs/toolkit (state management)
 - tailwindcss
 - redux-thunk (async)
-- [available](https://minlaxz.vercel.app/)
+- [here](https://minlaxz.vercel.app/)
 
-### Backend --
+---
+### For BE --
 - django
 - django-rest-framework (DRF)
 - django-cors-headers (CORS)
 - django-allauth (auth)
-- django-fsm (state machine)
+- django-fsm (finite state machine)
 
-### Backend Deployments --
-- Heroku - [available](https://superduperdrf.herokuapp.com/api/)
+---
+### For DevOps --
+- Heroku - [here](https://superduperdrf.herokuapp.com/api/)
 
-- AWS - [See compose file](./docker-compose.prod.yml)
+- Cloud - [See here](docker-compose.staging.yml)
     + web - (Django container) 
     + db - (PostgreSQL container)
-    + nginx-proxy - (NGINX container)
-    + nginx-proxy-letsencrypt - (NGINX SSL container)
+    + nginx-proxy - (NGINX reverse ssl container)
+
+---
+---
