@@ -10,11 +10,11 @@ Redirect to minlaxz.vercel.app .
 
 ---
 ### For FE --
-- next
-- reduxjs/toolkit (state management)
-- tailwindcss
+- nextjs
+- [redux/toolkit](https://redux-toolkit.js.org/) (state management)
+- [tailwindcss](https://tailwindcss.com/)
 - redux-thunk (async)
-- [here](https://minlaxz.vercel.app/)
+- deployed [here](https://minlaxz.vercel.app/)
 
 ---
 ### For BE --
@@ -25,13 +25,13 @@ Redirect to minlaxz.vercel.app .
 - django-fsm (finite state machine)
 
 ---
-### For DevOps --
-- Heroku - [here](https://superduperdrf.herokuapp.com/api/)
+### For Deployment --
+- ~~Heroku~~ - [here](https://superduperdrf.herokuapp.com/api/) -- this is going to be deprecated
+- Flyio - [here](https://super-duper-laxz-69.fly.dev/api/)
 
 - Cloud - [See here](docker-compose.staging.yml)
     + web - (Django container) 
     + db - (PostgreSQL container)
     + nginx-proxy - (NGINX reverse ssl container)
 
----
 ---
